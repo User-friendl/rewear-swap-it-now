@@ -43,7 +43,7 @@ export default function Login() {
           </p>
           <div className="flex items-center justify-center gap-1 mt-2 text-sm text-muted-foreground">
             <Leaf className="h-4 w-4 text-accent" />
-            <span>Reduce, Reuse, ReWear</span>
+            <span>Wear, Share, Care</span>
           </div>
         </div>
 
