@@ -39,7 +39,7 @@ export default function Login() {
             <h1 className="text-3xl font-bold text-foreground">VastraVerse</h1>
           </div>
           <p className="text-muted-foreground text-lg">
-            Wear.Share.Care
+            The art of conscious clothing exchange
           </p>
           <div className="flex items-center justify-center gap-1 mt-2 text-sm text-muted-foreground">
             <Leaf className="h-4 w-4 text-accent" />
