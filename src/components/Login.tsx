@@ -20,7 +20,7 @@ export default function Login() {
     // Simulate login process
     setTimeout(() => {
       toast({
-        title: "Welcome to ReWear!",
+        title: "Welcome to VastraVerse!",
         description: "Login successful. Start your sustainable fashion journey.",
       });
       setIsLoading(false);
@@ -36,10 +36,10 @@ export default function Login() {
             <div className="p-3 bg-primary rounded-full">
               <Recycle className="h-8 w-8 text-primary-foreground" />
             </div>
-            <h1 className="text-3xl font-bold text-foreground">ReWear</h1>
+            <h1 className="text-3xl font-bold text-foreground">VastraVerse</h1>
           </div>
           <p className="text-muted-foreground text-lg">
-            Sustainable Fashion Exchange
+            Wear.Share.Care
           </p>
           <div className="flex items-center justify-center gap-1 mt-2 text-sm text-muted-foreground">
             <Leaf className="h-4 w-4 text-accent" />
@@ -52,7 +52,7 @@ export default function Login() {
           <CardHeader className="text-center pb-4">
             <CardTitle className="text-2xl text-foreground">Welcome Back</CardTitle>
             <p className="text-muted-foreground">
-              Sign in to your ReWear account
+              Sign in to your VastraVerse account
             </p>
           </CardHeader>
           <CardContent>
@@ -132,7 +132,7 @@ export default function Login() {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="bg-card px-4 text-muted-foreground">
-                  New to ReWear?
+                  New to VastraVerse?
                 </span>
               </div>
             </div>
