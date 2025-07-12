@@ -28,73 +28,93 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-secondary flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        {/* Header */}
-        <div className="text-center mb-8 animate-fade-in">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="p-3 bg-primary rounded-full">
-              <Recycle className="h-8 w-8 text-primary-foreground" />
+    <div className="min-h-screen flex">
+      {/* Left Side - Green Background with Branding */}
+      <div className="flex-1 bg-primary flex flex-col justify-center items-center p-8 text-white relative">
+        {/* Navigation Header */}
+        <div className="absolute top-8 left-8 right-8">
+          <nav className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold text-white">VastraVerse.</h1>
+            <div className="flex items-center gap-8 text-sm">
+              <span className="text-white/80 hover:text-white cursor-pointer">HOME</span>
+              <span className="text-white/80 hover:text-white cursor-pointer">ABOUT US</span>
+              <span className="text-white/80 hover:text-white cursor-pointer">CONTACT</span>
+              <span className="text-white underline cursor-pointer">LOG IN</span>
             </div>
-            <h1 className="text-3xl font-bold text-foreground">VastraVerse</h1>
-          </div>
-          <p className="text-muted-foreground text-lg">
-            The art of conscious clothing exchange
-          </p>
-          <div className="flex items-center justify-center gap-1 mt-2 text-sm text-muted-foreground">
-            <Leaf className="h-4 w-4 text-accent" />
-            <span>Wear.Share.Care</span>
-          </div>
+          </nav>
         </div>
 
-        {/* Login Form */}
-        <Card className="shadow-lg border-0 bg-card/95 backdrop-blur-sm animate-scale-in">
-          <CardHeader className="text-center pb-4">
-            <CardTitle className="text-2xl text-foreground">Welcome Back</CardTitle>
-            <p className="text-muted-foreground">
-              Sign in to your VastraVerse account
-            </p>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Main Branding */}
+        <div className="text-center">
+          <h2 className="text-6xl font-bold text-white mb-4">
+            Wear.Share.Care!
+          </h2>
+          <p className="text-white/90 text-lg">
+            The art of conscious clothing exchange
+          </p>
+        </div>
+
+        {/* Floating Action Button */}
+        <div className="absolute bottom-8 right-8">
+          <div className="bg-black/20 backdrop-blur-sm rounded-full p-4 flex items-center gap-2">
+            <Recycle className="h-5 w-5 text-white" />
+            <Leaf className="h-5 w-5 text-white" />
+            <button className="text-white">
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zM12 13a1 1 0 110-2 1 1 0 010 2zM12 20a1 1 0 110-2 1 1 0 010 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Side - Login Form */}
+      <div className="flex-1 bg-white flex items-center justify-center p-8">
+        <div className="w-full max-w-md">
+          <div className="bg-white rounded-3xl p-8 shadow-xl">
+            <h2 className="text-3xl font-bold text-black mb-8">Log in</h2>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-background border-border focus:ring-primary focus:border-primary"
-                  required
-                />
+                <div className="relative">
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="Username"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="bg-gray-100 border-0 rounded-2xl py-6 pl-12 text-black placeholder:text-gray-500 focus:ring-2 focus:ring-primary"
+                    required
+                  />
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                    <div className="w-5 h-5 bg-gray-400 rounded-full"></div>
+                  </div>
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-foreground">
-                  Password
-                </Label>
                 <div className="relative">
                   <Input
                     id="password"
                     type={showPassword ? "text" : "password"}
-                    placeholder="••••••••"
+                    placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="bg-background border-border focus:ring-primary focus:border-primary pr-10"
+                    className="bg-gray-100 border-0 rounded-2xl py-6 pl-12 pr-12 text-black placeholder:text-gray-500 focus:ring-2 focus:ring-primary"
                     required
                   />
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                    <div className="w-5 h-5 bg-gray-400 rounded"></div>
+                  </div>
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
                   >
                     {showPassword ? (
-                      <EyeOff className="h-4 w-4" />
+                      <EyeOff className="h-5 w-5" />
                     ) : (
-                      <Eye className="h-4 w-4" />
+                      <Eye className="h-5 w-5" />
                     )}
                   </button>
                 </div>
@@ -104,60 +124,45 @@ export default function Login() {
                 <label className="flex items-center space-x-2 cursor-pointer">
                   <input
                     type="checkbox"
-                    className="rounded border-border text-primary focus:ring-primary"
+                    className="rounded text-primary focus:ring-primary"
                   />
-                  <span className="text-muted-foreground">Remember me</span>
+                  <span className="text-gray-500">Remember Me</span>
                 </label>
                 <button
                   type="button"
-                  className="text-primary hover:text-accent transition-colors"
+                  className="text-gray-500 hover:text-gray-700"
                 >
-                  Forgot password?
+                  Forgot Password?
                 </button>
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-accent text-primary-foreground font-medium py-6 text-lg transition-all duration-200 hover:shadow-lg"
+                className="w-full bg-black hover:bg-gray-800 text-white font-medium py-6 text-lg rounded-2xl transition-all duration-200"
                 disabled={isLoading}
               >
-                {isLoading ? "Signing in..." : "Sign In"}
+                {isLoading ? "Logging in..." : "Log in"}
+              </Button>
+
+              <div className="relative my-6">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-200"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="bg-white px-4 text-gray-500">
+                    Or
+                  </span>
+                </div>
+              </div>
+
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full border-gray-200 text-black hover:bg-gray-50 font-medium py-6 text-lg rounded-2xl transition-all duration-200"
+              >
+                Sign up
               </Button>
             </form>
-
-            {/* Divider */}
-            <div className="relative my-6">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-border"></div>
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="bg-card px-4 text-muted-foreground">
-                  New to VastraVerse?
-                </span>
-              </div>
-            </div>
-
-            {/* Sign Up Link */}
-            <Button
-              variant="outline"
-              className="w-full border-border text-foreground hover:bg-secondary hover:text-primary transition-all duration-200"
-            >
-              Create your account
-            </Button>
-          </CardContent>
-        </Card>
-
-        {/* Footer */}
-        <div className="text-center mt-8 animate-fade-in">
-          <p className="text-sm text-muted-foreground">
-            Join thousands of users making fashion sustainable
-          </p>
-          <div className="flex items-center justify-center gap-6 mt-4 text-xs text-muted-foreground">
-            <span>Privacy Policy</span>
-            <span>•</span>
-            <span>Terms of Service</span>
-            <span>•</span>
-            <span>Help Center</span>
           </div>
         </div>
       </div>
